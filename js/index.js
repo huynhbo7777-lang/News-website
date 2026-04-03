@@ -367,7 +367,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var mouseY = posY;
 
   // Base smoothing factor tuned for 60fps (converted to frame-rate independent alpha below)
-  var BASE_EASE = 0.16;
+  var BASE_EASE = 0.6;
   var lastTime = performance.now();
 
   // Update mouse coordinates on every move
