@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const intro = document.getElementById("nw-auth-intro");
 
-  gsap.set(".nw-auth-copy, .nw-auth-card, .nw-navbar", { autoAlpha: 0 });
+  gsap.set(".nw-auth-copy, .nw-auth-card", { autoAlpha: 0 });
   gsap.set(".nw-auth-card .mb-3, .nw-auth-submit, .nw-auth-help", {
     autoAlpha: 0,
   });
@@ -43,8 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .set("#nw-auth-intro", { display: "none" });
   }
 
-  tl.to(".nw-navbar", { autoAlpha: 1, y: 0, duration: 0.6 })
-    .fromTo(
+  tl.fromTo(
       ".nw-auth-copy",
       { y: 30, autoAlpha: 0 },
       { y: 0, autoAlpha: 1, duration: 0.8 },

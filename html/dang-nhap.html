@@ -15,9 +15,11 @@
     <script src="../js/gsap/gsap.min.js" defer></script>
     <script src="../js/login.js" defer></script>
     <script src="../js/auth.js" defer></script>
+    <script src="../js/cursor.js" defer></script>
   </head>
 
   <body class="nw-body nw-auth-body">
+    <div id="nw-cursor" aria-hidden="true"></div>
     <div id="nw-auth-intro" aria-hidden="true">
       <div class="nw-auth-intro-text">
         <span class="nw-auth-intro-line">BÁO CHÍ</span>
@@ -27,7 +29,7 @@
 
     <header class="nw-header sticky-top">
       <nav class="navbar navbar-expand-xl navbar-dark nw-navbar py-0">
-        <div class="container-fluid px-4 px-xl-5">
+        <div class="container-fluid px-3 px-xl-4">
           <a class="navbar-brand nw-logo py-3" href="./Home.html">
             <span>BÁO CHÍ</span>
             <span class="nw-logo-accent"> DESIGN</span>
@@ -75,14 +77,12 @@
     </div>
 
     <main class="nw-auth-page">
-      <div class="container-fluid px-4 px-xl-5">
+      <div class="container-fluid px-3 px-xl-4">
         <div class="row align-items-center g-4">
           <div class="col-lg-6">
             <div class="nw-auth-copy">
               <p class="nw-auth-kicker">Tin tức online</p>
-              <h1 class="nw-auth-title">
-                Chào mừng <span>trở lại</span>
-              </h1>
+              <h1 class="nw-auth-title">Chào mừng <span>trở lại</span></h1>
               <p class="nw-auth-subtitle">
                 Đăng nhập để theo dõi những chủ đề mới nhất, lưu bài viết và
                 nhận thông báo độc quyền.
@@ -101,7 +101,9 @@
               <ul class="nw-auth-feature-list">
                 <li class="nw-auth-feature-item">
                   <span class="nw-auth-feature-icon">01</span>
-                  <span>Theo dõi chủ đề yêu thích và nhận bản tin chọn lọc.</span>
+                  <span
+                    >Theo dõi chủ đề yêu thích và nhận bản tin chọn lọc.</span
+                  >
                 </li>
                 <li class="nw-auth-feature-item">
                   <span class="nw-auth-feature-icon">02</span>
@@ -151,11 +153,18 @@
                   />
                 </div>
 
-                <div id="loginMessage" class="nw-auth-message" aria-live="polite"></div>
+                <div
+                  id="loginMessage"
+                  class="nw-auth-message"
+                  aria-live="polite"
+                ></div>
 
                 <button type="submit" class="btn nw-auth-submit w-100">
                   <span class="nw-auth-submit-text">Đăng nhập</span>
-                  <span class="nw-auth-submit-spinner" aria-hidden="true"></span>
+                  <span
+                    class="nw-auth-submit-spinner"
+                    aria-hidden="true"
+                  ></span>
                 </button>
               </form>
 

@@ -31,7 +31,6 @@
         var section = document.getElementById("nw-cm-transition");
         var svgMask = document.getElementById("nw-cm-svg-mask");
         var circleEl = document.getElementById("nw-cm-hole");
-        var cmVideo = section ? section.querySelector(".nw-cm-video") : null;
         var feedListPrimary = section ? section.querySelector(".nw-feed-list-primary") : null;
         var feedListSecondary = section ? section.querySelector(".nw-feed-list-secondary") : null;
         var feedListTertiary = section ? section.querySelector(".nw-feed-list-tertiary") : null;
@@ -60,19 +59,6 @@
                 bgRect.setAttribute("width", W.toString());
                 bgRect.setAttribute("height", H.toString());
             }
-        }
-
-        function isMobileViewport() {
-            if (!window.matchMedia) return window.innerWidth <= 767;
-            return window.matchMedia("(max-width: 767.98px)").matches;
-        }
-
-        function getVideoScrubStart() {
-            return isMobileViewport() ? "top 50%" : "center 60%";
-        }
-
-        function getVideoScrubEnd() {
-            return isMobileViewport() ? "120% top" : "bottom top";
         }
 
         function setupFeedHover(cards) {
@@ -334,57 +320,6 @@
                 mediaSyncedHidden = false;
             },
         });
-
-        if (cmVideo) {
-            gsap.set(cmVideo, {
-                scale: 1.12,
-                yPercent: -4,
-                transformOrigin: "50% 50%",
-            });
-
-            var videoScrubTl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: cmVideo,
-                    start: getVideoScrubStart,
-                    end: getVideoScrubEnd,
-                    scrub: true,
-                    invalidateOnRefresh: true,
-                },
-            });
-
-            function bindVideoScrubToDuration() {
-                if (!isFinite(cmVideo.duration) || cmVideo.duration <= 0) return;
-
-                cmVideo.pause();
-                videoScrubTl.clear();
-                videoScrubTl.fromTo(cmVideo, {
-                    currentTime: 0,
-                }, {
-                    currentTime: cmVideo.duration,
-                    ease: "none",
-                    duration: 1,
-                }, 0);
-            }
-
-            if (cmVideo.readyState >= 1) {
-                bindVideoScrubToDuration();
-            } else {
-                cmVideo.addEventListener("loadedmetadata", bindVideoScrubToDuration, { once: true });
-            }
-
-            ScrollTrigger.create({
-                trigger: section,
-                start: "top top",
-                end: sectionScrollEnd,
-                scrub: 2.6,
-                invalidateOnRefresh: true,
-                animation: gsap.to(cmVideo, {
-                    scale: 1,
-                    yPercent: 0,
-                    ease: "none",
-                }),
-            });
-        }
 
         // ── Resize ────────────────────────────────────────────────────────────────
         var resizeTimeout;

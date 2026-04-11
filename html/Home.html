@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css" />
     <link rel="stylesheet" href="../css/index.css" />
     <link rel="stylesheet" href="../css/section2.css" />
+    <link rel="stylesheet" href="../css/horizontal-feed.css" />
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
@@ -33,11 +34,11 @@
     <!-- GSAP -->
     <script src="../js/gsap/gsap.min.js" defer></script>
     <script src="../js/gsap/ScrollTrigger.min.js" defer></script>
-    <script src="../js/gsap/SplitText.min.js" defer></script>
 
     <!-- SECTION -->
     <script src="../js/heroSection.js" defer></script>
     <script src="../js/components/section2.js" defer></script>
+    <script src="../js/components/horizontalFeed.js" defer></script>
     <script src="../js/cursor.js" defer></script>
     <script src="../js/auth.js" defer></script>
   </head>
@@ -46,62 +47,62 @@
     <!-- Custom cursor -->
     <div id="nw-cursor" aria-hidden="true"></div>
 
-    <header class="nw-header sticky-top" data-page-reveal>
-      <nav class="navbar navbar-expand-xl navbar-dark nw-navbar py-0">
-        <div class="container-fluid px-4 px-xl-5">
-          <a class="navbar-brand nw-logo py-3" href="#">
-            <span>BÁO CHÍ</span>
-            <span class="nw-logo-accent"> DESIGN</span>
-          </a>
-          <button
-            class="navbar-toggler border-0 shadow-none"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#nwMenu"
-            aria-controls="nwMenu"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="nwMenu">
-            <ul class="navbar-nav mx-auto mb-2 mb-xl-0 gap-xl-4">
-              <li class="nav-item">
+    <header class="nw-header sticky-top">
+      <nav class="navbar navbar-dark nw-navbar py-0">
+        <div class="container-fluid px-3 px-xl-4">
+          <div class="nw-navbar-shell w-100">
+            <span class="nw-team-tag">Nhóm 7</span>
+            <ul class="navbar-nav mb-0 nw-main-menu nw-main-menu-left">
+              <li class="nav-item nw-menu-item">
                 <a class="nav-link nw-menu-link" href="#"
                   >Kinh tế &amp; Chính trị</a
                 >
               </li>
-              <li class="nav-item">
+              <li class="nav-item nw-menu-item">
                 <a class="nav-link nw-menu-link" href="#">Thể thao</a>
               </li>
-              <li class="nav-item">
+            </ul>
+            <a class="nw-logo py-3 mb-0" href="#">
+              <span>BÁO CHÍ DESIGN</span>
+            </a>
+            <ul class="navbar-nav mb-0 nw-main-menu nw-main-menu-right">
+              <li class="nav-item nw-menu-item">
                 <a class="nav-link nw-menu-link" href="#"
                   >Giải trí &amp; Đời sống</a
                 >
               </li>
-              <li class="nav-item">
-                <a class="nav-link nw-menu-link" href="#">Khoa học vũ trụ</a>
-              </li>
-              <li class="nav-item">
+              <li class="nav-item nw-menu-item">
                 <a class="nav-link nw-menu-link" href="#"
-                  >Khám phá thiên nhiên</a
+                  >Vũ trụ &amp; Thiên nhiên</a
                 >
               </li>
             </ul>
-            <ul class="navbar-nav ms-auto mb-2 mb-xl-0 gap-3">
-              <li class="nav-item" id="register-link">
-                <a class="nav-link nw-menu-link" href="./dang-ky.html">
-                  Đăng ký
-                </a>
-              </li>
-              <li class="nav-item" id="login-link">
-                <a class="nav-link nw-menu-link" href="./dang-nhap.html">
-                  Đăng nhập
-                </a>
-              </li>
-            </ul>
+            <button
+              class="navbar-toggler border-0 shadow-none"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#nwMenu"
+              aria-controls="nwMenu"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+          <div class="collapse navbar-collapse justify-content-end" id="nwMenu">
+            <div
+              class="d-flex justify-content-center justify-content-lg-end w-100 mb-2 nw-menu-actions"
+            >
+              <a
+                class="btn nw-login-btn rounded-0 px-4 py-4"
+                id="login-link"
+                href="./dang-nhap.html"
+              >
+                Đăng nhập
+              </a>
+            </div>
             <ul
-              class="navbar-nav list-inline mb-0 ms-xl-3"
+              class="navbar-nav list-inline mb-0 justify-content-center justify-content-lg-end w-100"
               id="user-options"
             ></ul>
           </div>
@@ -111,74 +112,126 @@
 
     <main class="nw-main">
       <!-- SECTION 1 -->
-      <section class="nw-hero position-relative" data-page-reveal>
-        <div class="container-fluid px-4 px-xl-5">
-          <div class="row align-items-center gx-4 gx-xl-5 nw-hero-upper">
-            <div class="col-lg-7">
-              <div class="nw-slogan">
-                <p class="nw-kicker mb-2">
-                  <span class="nw-line-wrap"
-                    ><span class="nw-line-inner">BÁO CHÍ</span></span
-                  >
-                </p>
-                <p class="nw-title mb-0">
-                  <span class="nw-line-wrap"
-                    ><span class="nw-line-inner"
-                      >Không chỉ dừng lại ở</span
-                    ></span
-                  >
-                  <span class="nw-line-wrap"
-                    ><span class="nw-line-inner nw-title-sub"
-                      >Nội dung</span
-                    ></span
-                  >
-                </p>
-                <p class="nw-subtitle mt-4 mb-2">
-                  <span class="nw-line-wrap"
-                    ><span class="nw-line-inner"
-                      >Mà bắt đầu từ cách bạn</span
-                    ></span
-                  >
-                </p>
-                <p class="nw-highlight mb-1">
-                  <span class="nw-line-wrap"
-                    ><span class="nw-line-inner">Thể hiện</span></span
-                  >
+      <section class="nw-hero position-relative">
+        <div class="feed-container">
+          <div class="feed-track">
+            <article class="proj-card">
+              <img
+                src="/images/Trump.png"
+                alt="Global Dispatch cover"
+                loading="lazy"
+              />
+              <div class="proj-content">
+                <div class="proj-title-row">
+                  <h3 class="proj-title">Global Dispatch</h3>
+                  <span class="proj-badge">NEW</span>
+                </div>
+                <p class="proj-desc">
+                  Editorial package tracking high-stakes diplomacy with layered
+                  timeline blocks and fast-turn updates.
                 </p>
               </div>
-            </div>
-            <div
-              class="col-lg-5 d-flex justify-content-lg-end mt-4 mt-lg-0 nw-video-col"
-            >
-              <article class="nw-video-card" data-animate="video-card">
-                <div class="nw-video-media">
-                  <video
-                    src="../images/videos/2025lookback.mp4"
-                    autoplay
-                    muted
-                    loop
-                    playsinline
-                  ></video>
-                  <span class="nw-year-badge">2025</span>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
+            </article>
 
-        <div class="nw-ruler" data-animate="ruler">
-          <div
-            class="container-fluid px-4 px-xl-5 d-flex align-items-center nw-ruler-inner"
-          >
-            <span>UI/UX Design</span>
-            <span>Sự tương phản</span>
+            <article class="proj-card">
+              <img
+                src="/images/trump2.png"
+                alt="Policy Lens cover"
+                loading="lazy"
+              />
+              <div class="proj-content">
+                <div class="proj-title-row">
+                  <h3 class="proj-title">Policy Lens</h3>
+                  <span class="proj-badge">NEW</span>
+                </div>
+                <p class="proj-desc">
+                  Longform layout balancing data callouts, concise context, and
+                  narrative pacing for decision-centric readers.
+                </p>
+              </div>
+            </article>
+
+            <article class="proj-card">
+              <img
+                src="/images/iranbombed.png"
+                alt="Live Wire cover"
+                loading="lazy"
+              />
+              <div class="proj-content">
+                <div class="proj-title-row">
+                  <h3 class="proj-title">Live Wire</h3>
+                  <span class="proj-badge">NEW</span>
+                </div>
+                <p class="proj-desc">Cộng hoà xã hội chủ nghĩa Việt Nam</p>
+              </div>
+            </article>
+
+            <article class="center-card" aria-label="Feed center title card">
+              <h3 class="center-title">ALL WORK!</h3>
+              <p class="center-subtitle">
+                A Featured selection the latest work —<br />of the last years.
+              </p>
+              <p class="center-tip">TIP! Drag sideways to navigate</p>
+            </article>
+
+            <article class="proj-card">
+              <img
+                src="/images/iranbomb.png"
+                alt="Market Pulse cover"
+                loading="lazy"
+              />
+              <div class="proj-content">
+                <div class="proj-title-row">
+                  <h3 class="proj-title">Market Pulse</h3>
+                  <span class="proj-badge">NEW</span>
+                </div>
+                <p class="proj-desc">
+                  Financial briefing flow with compact summaries, confidence
+                  markers, and sector-by-sector snapshots.
+                </p>
+              </div>
+            </article>
+
+            <article class="proj-card">
+              <img
+                src="/images/Trump.png"
+                alt="Signal Desk cover"
+                loading="lazy"
+              />
+              <div class="proj-content">
+                <div class="proj-title-row">
+                  <h3 class="proj-title">Signal Desk</h3>
+                  <span class="proj-badge">NEW</span>
+                </div>
+                <p class="proj-desc">
+                  Compact newsroom module for tracking brief alerts, response
+                  windows, and rolling commentary.
+                </p>
+              </div>
+            </article>
+
+            <article class="proj-card">
+              <img
+                src="/images/injury.png"
+                alt="Deep Focus cover"
+                loading="lazy"
+              />
+              <div class="proj-content">
+                <div class="proj-title-row">
+                  <h3 class="proj-title">Deep Focus</h3>
+                  <span class="proj-badge">NEW</span>
+                </div>
+                <p class="proj-desc">
+                  Feature storytelling canvas designed for slower reading, rich
+                  pull-quotes, and visual breathing room.
+                </p>
+              </div>
+            </article>
           </div>
         </div>
-        <div class="container-fluid px-4 px-xl-5" data-page-reveal>
-          <div id="nw-dt-anchor">
-            <h2 class="nw-display-title mb-0" id="nw-dt-title">
-              TIN TỨC ONLINE
-            </h2>
+        <div class="container-fluid px-3 px-xl-4">
+          <div class="nw-title-wrap">
+            <h2 class="nw-display-title mb-0">TIN TỨC ONLINE</h2>
           </div>
         </div>
       </section>
@@ -195,11 +248,11 @@
           <!-- Layer z=0: nền trắng mặc định -->
           <div class="nw-cm-default-bg" aria-hidden="true"></div>
 
-          <!-- Layer z=1: nội dung text + video layout ngang -->
+          <!-- Layer z=1: nội dung text layout -->
           <div class="nw-cm-next-layer">
             <div class="nw-cm-horizontal-layout">
               <!-- Nội dung 1 -->
-              <div class="nw-cm-next-wrap px-4 px-xl-5">
+              <div class="nw-cm-next-wrap px-3 px-xl-4">
                 <p class="nw-feed-kicker nw-cm-reveal" section2-data>
                   TOP STORIES
                 </p>
@@ -376,7 +429,7 @@
                 </div>
               </div>
               <!-- Nội dung 2
-              <div class="nw-cm-next-wrap px-4 px-xl-5">
+              <div class="nw-cm-next-wrap px-3 px-xl-4">
                 <p class="nw-cm-reveal" section2-data>CHỦ ĐỀ TRỌNG TÂM</p>
                 <h3 class="nw-cm-headline nw-cm-reveal" section2-data>
                   Những lát cắt thiết kế tạo nên cảm xúc đọc tin liền mạch.
@@ -385,15 +438,6 @@
                   nội dung kế tiếp xuất hiện tự nhiên, không bị khựng khung.
                 </p>
               </div> -->
-              <div class="nw-cm-video-pane" aria-hidden="true">
-                <video
-                  class="nw-cm-video"
-                  src="../images/videos/earth1.mp4"
-                  muted
-                  playsinline
-                  preload="auto"
-                ></video>
-              </div>
             </div>
           </div>
 
@@ -431,12 +475,5 @@
         <!-- /.nw-cm-sticky-inner -->
       </section>
     </main>
-
-    <!--CINEMATIC INTRO OVERLAY -->
-    <div id="nw-intro-overlay" aria-hidden="true">
-      <div id="nw-intro-text">
-        <h2 class="nw-it-wipe" data-text="TIN TỨC ONLINE">TIN TỨC ONLINE</h2>
-      </div>
-    </div>
   </body>
 </html>
