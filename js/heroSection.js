@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+﻿document.addEventListener("DOMContentLoaded", function () {
   function signalPageReady() {
     window.__nwPageReady = true;
     document.dispatchEvent(new CustomEvent("nw:page-ready"));
@@ -16,11 +16,11 @@ document.addEventListener("DOMContentLoaded", function () {
   // ── GSAP Hover cho menu items (trừ logo) ──────────────────────────────
   if (typeof gsap !== "undefined") {
     const menuItems = document.querySelectorAll(
-      ".nw-main-menu .nw-menu-item"
+      ".news-main-menu .news-menu-item"
     );
 
     menuItems.forEach(function (item) {
-      const link = item.querySelector(".nw-menu-link");
+      const link = item.querySelector(".news-menu-link");
       if (!link) return;
 
       // Đặt trạng thái ban đầu
@@ -46,10 +46,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // ── GSAP Hover cho hamburger ──────────────────────────────────────────
-    const hamburgerBtn = document.querySelector(".nw-hamburger-btn");
+    const hamburgerBtn = document.querySelector(".news-hamburger-btn");
     if (hamburgerBtn) {
-      const topLine    = hamburgerBtn.querySelector(".nw-ham-top");
-      const bottomLine = hamburgerBtn.querySelector(".nw-ham-bottom");
+      const topLine    = hamburgerBtn.querySelector(".news-ham-top");
+      const bottomLine = hamburgerBtn.querySelector(".news-ham-bottom");
 
       gsap.set([topLine, bottomLine], { x: 0 });
 
@@ -79,3 +79,4 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 });
+

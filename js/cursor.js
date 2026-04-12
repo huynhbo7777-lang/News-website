@@ -1,7 +1,7 @@
-/* LERP: công thức bắt chuột mượt */
+﻿/* LERP: công thức bắt chuột mượt */
 
 (function () {
-  var cursor = document.getElementById("nw-cursor");
+  var cursor = document.getElementById("news-cursor");
   if (!cursor) return;
 
   // Vị trí đang hiển thị, khởi tạo giữa màn hình
@@ -64,14 +64,14 @@
   
   //Quy định những nơi được hover
   var phan_tu_duoc_chon_hover =
-    "a, button, [role='button'], input, textarea, select, label, .nw-feed-card";
+    "a, button, [role='button'], input, textarea, select, label, .news-feed-card";
 
   function addHoverListeners(el) {
     el.addEventListener("mouseenter", function () {
-      cursor.classList.add("nw-cursor--hover");
+      cursor.classList.add("news-cursor--hover");
     });
     el.addEventListener("mouseleave", function () {
-      cursor.classList.remove("nw-cursor--hover");
+      cursor.classList.remove("news-cursor--hover");
     });
   }
 
@@ -84,7 +84,7 @@
       e.target.matches(phan_tu_duoc_chon_hover) ||
       e.target.closest(phan_tu_duoc_chon_hover)
     ) {
-      cursor.classList.add("nw-cursor--hover");
+      cursor.classList.add("news-cursor--hover");
     }
   });
 
@@ -94,7 +94,7 @@
       e.target.matches(phan_tu_duoc_chon_hover) ||
       e.target.closest(phan_tu_duoc_chon_hover)
     ) {
-      cursor.classList.remove("nw-cursor--hover");
+      cursor.classList.remove("news-cursor--hover");
     }
   });
 
@@ -128,3 +128,5 @@
     }
   });
 })();
+
+

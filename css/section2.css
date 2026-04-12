@@ -1,104 +1,186 @@
-
-.nw-section-two {
-  background: var(--nw-hero-bg);
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding: clamp(56px, 8vw, 96px) 0 clamp(72px, 9vw, 120px);
+﻿/* ===== SECTION 2 WRAPPER ===== */
+.news-s2-wrapper {
+  margin-top: clamp(5px, 2vw, 120px);
 }
 
-.nw-s2-head {
+/* ===== SECTION 2 ===== */
+.news-section-two {
+  --news-s2-card: #f4f4f2;
+  --news-s2-line: #d2d0cb;
+  --news-s2-text: #111111;
+  --news-s2-skin-text: #f2d2b1;
+  --news-s2-image-height: clamp(260px, 90vh, 900px);
+  background: var(--news-bg);
+  color: var(--news-s2-text);
+  overflow: clip;
+}
+
+/* ===== VIEWPORT & TRACK ===== */
+.news-s2-viewport {
+  width: 100%;
+  overflow: hidden;
+  padding-inline: clamp(14px, 2vw, 28px);
+}
+
+.news-s2-track {
   display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 1.2rem;
-  padding-bottom: 0.8rem;
-  border-bottom: 1px solid rgba(28, 28, 26, 0.28);
-  margin-bottom: clamp(20px, 3vw, 34px);
+  gap: clamp(18px, 2vw, 34px);
+  width: max-content;
+  will-change: transform;
 }
 
-.nw-s2-kicker {
-  font-family: "Oswald", sans-serif;
-  font-size: clamp(0.78rem, 1vw, 0.95rem);
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: rgba(28, 28, 26, 0.9);
+/* ===== PANEL (card chung) ===== */
+.news-s2-panel {
+  position: relative;
+  flex: 0 0 auto;
+  width: fit-content;
+  background: var(--news-s2-card);
+  min-height: clamp(420px, 72vh, 820px);
 }
 
-.nw-s2-title {
-  font-family: "Merriweather", serif;
-  font-size: clamp(1.4rem, 4.8vw, 3.2rem);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: 0.015em;
-  color: #1c1c1a;
-}
-
-.nw-s2-grid {
+/* ===== PANEL LEAD ===== */
+.news-s2-panel--lead {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: minmax(180px, 240px) auto;
   gap: clamp(14px, 2vw, 24px);
+  padding: clamp(18px, 2.2vw, 30px);
 }
 
-.nw-s2-card {
-  background: rgba(255, 255, 255, 0.48);
-  border: 1px solid rgba(28, 28, 26, 0.22);
-  padding: clamp(16px, 2.2vw, 24px);
-  min-height: clamp(220px, 28vw, 300px);
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+@media (min-width: 992px) {
+  .news-s2-panel--article-1 {
+    min-width: clamp(560px, 46vw, 760px);
+  }
+
+  .news-s2-panel--article-1 + .news-s2-panel--photo .news-s2-image {
+    max-width: min(64vw, 720px);
+  }
 }
 
-.nw-s2-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 30px rgba(20, 18, 16, 0.12);
+/* ===== Ná»˜I DUNG EDITORIAL ===== */
+.news-s2-editorial {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-right: clamp(8px, 1.1vw, 14px);
 }
 
-.nw-s2-tag {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 4px 10px;
-  border: 1px solid rgba(28, 28, 26, 0.35);
+.news-s2-mark {
+  font-family: "Merriweather", serif;
+  font-size: clamp(2.4rem, 6vw, 5.1rem);
+  font-weight: 700;
+  line-height: 0.9;
+  color: #0a0a0a;
+}
+
+.news-s2-editorial-text {
+  margin: 0;
   font-family: "Inter", sans-serif;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: #1c1c1a;
+  font-size: clamp(0.9rem, 1.12vw, 1.05rem);
+  line-height: 1.65;
+  color: rgba(17, 17, 17, 0.87);
+  max-width: 26ch;
 }
 
-.nw-s2-card-title {
-  margin: 0.95rem 0 0.8rem;
-  font-family: "Playfair Display", "Merriweather", serif;
-  font-size: clamp(1.15rem, 2.3vw, 1.75rem);
-  font-weight: 700;
-  line-height: 1.2;
-  color: #1c1c1a;
+/* ===== PANEL áº¢NH ===== */
+.news-s2-panel--photo {
+  display: block;
+  padding: 0;
+  overflow: hidden;
 }
 
-.nw-s2-card-desc {
+.news-s2-image {
+  width: auto;
+  max-width: min(92vw, 1000px);
+  height: var(--news-s2-image-height);
+  min-height: 0;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+/* ===== META (hiện khi hover) ===== */
+.news-s2-meta {
+  position: absolute;
+  left: clamp(10px, 1.3vw, 16px);
+  right: clamp(10px, 1.3vw, 16px);
+  bottom: clamp(10px, 1.3vw, 16px);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: clamp(10px, 1.3vw, 14px) clamp(12px, 1.6vw, 18px);
+  background: #000;
+  color: var(--news-s2-skin-text);
+  font-family: "Times New Roman", Times, serif;
+  letter-spacing: -0.05em;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.28s ease, transform 0.28s ease;
+  pointer-events: none;
+}
+
+.news-s2-panel--photo:hover .news-s2-meta,
+.news-s2-panel--photo:focus-within .news-s2-meta {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.news-s2-index {
+  font-family: "Times New Roman", Times, serif;
+  font-size: clamp(0.92rem, 1.05vw, 1.06rem);
+  letter-spacing: -0.05em;
+  color: var(--news-s2-skin-text);
+}
+
+.news-s2-card-title {
   margin: 0;
   font-family: "Times New Roman", Times, serif;
-  font-size: clamp(0.96rem, 1.3vw, 1.08rem);
-  line-height: 1.55;
-  color: rgba(28, 28, 26, 0.88);
+  font-size: clamp(1rem, 1.6vw, 1.55rem);
+  line-height: 1.25;
+  letter-spacing: -0.05em;
+  color: var(--news-s2-skin-text);
 }
 
+/* ===== RESPONSIVE ===== */
 @media (max-width: 991.98px) {
-  .nw-s2-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .news-section-two {
+    --news-s2-image-height: clamp(220px, 44vh, 380px);
+    padding: clamp(64px, 12vw, 120px) 0 clamp(24px, 5vw, 34px);
+  }
+
+  .news-s2-viewport {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 0.5rem;
+    scrollbar-width: thin;
+  }
+
+  .news-s2-track {
+    transform: none !important;
+  }
+
+  .news-s2-panel--lead {
+    grid-template-columns: 1fr;
+  }
+
+  .news-s2-image {
+    max-width: 88vw;
+  }
+
+  .news-s2-editorial {
+    gap: 0.8rem;
+    padding-right: 0;
+  }
+
+  .news-s2-editorial-text {
+    max-width: none;
   }
 }
 
 @media (max-width: 575.98px) {
-  .nw-s2-head {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.45rem;
-  }
-
-  .nw-s2-grid {
-    grid-template-columns: 1fr;
+  .news-s2-card-title {
+    font-size: 1.02rem;
   }
 }
+

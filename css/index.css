@@ -1,15 +1,14 @@
-/* Base reset for pages loading index.css */
+﻿/* ===== RESET & BASE ===== */
 * {
   margin: 0;
   padding: 0;
 }
 
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 16px;
   line-height: 1.6;
-  color: #333;
-  scroll-behavior: smooth;
+  color: #1c1c1a;
 }
 
 ::selection {
@@ -17,87 +16,108 @@ body {
   color: black;
 }
 
+/* ===== CSS VARIABLES ===== */
 :root {
-  --nw-bg: #000000;
-  --nw-text: #1c1c1a;
-  --nw-muted: #cccccc;
-  --nw-accent: #ffdd00;
-  --nw-hero-bg: url("../images/bg.png") center / 101% 101% no-repeat;
+  --news-text: #1c1c1a;
+  --news-accent: #ffdd00;
+  --news-bg: url("../images/bg.png") center / 101% 101% no-repeat;
 }
 
-.nw-body {
-  background: var(--nw-bg);
-  color: var(--nw-text);
-  font-family: "Inter", sans-serif;
+/* ===== BODY & BACKGROUND ===== */
+.news-body {
+  background: var(--news-bg);
+  color: var(--news-text);
 }
 
-.nw-navbar {
+/* ===== NAVBAR ===== */
+.news-navbar {
   background-image: url("../images/bg.png");
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
 
-.nw-navbar-shell {
+.news-navbar-shell {
   position: relative;
   display: grid;
   grid-template-columns: auto 1fr 1fr 1fr auto;
   align-items: center;
 }
 
-.nw-team-tag {
+/* ===== TEAM TAG ===== */
+.news-team-tag {
   grid-column: 1;
-  justify-self: start;
-  position: static;
-  transform: none;
   font-family: "Oswald", sans-serif;
   font-size: 1rem;
   font-weight: 500;
-  color: var(--nw-text);
+  color: var(--news-text);
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
-.nw-navbar-shell .navbar-toggler {
+/* ===== HAMBURGER BUTTON ===== */
+.news-navbar-shell .navbar-toggler {
   grid-column: 5;
   justify-self: end;
 }
 
-.nw-navbar .navbar-collapse {
-  flex-basis: 100%;
+.news-navbar .navbar-collapse {
   margin-top: 0.35rem;
   padding-bottom: 0.75rem;
 }
 
-.nw-logo {
+/* ===== LOGO ===== */
+.news-logo {
   grid-column: 3;
   font-family: "Merriweather", serif;
   font-weight: 700;
   font-size: 2rem;
-  letter-spacing: 0.02em;
   color: #4e4d4d;
   text-decoration: none;
   text-transform: uppercase;
   white-space: nowrap;
   justify-self: center;
-  padding-top: 0.2rem !important;
-  padding-bottom: 0.2rem !important;
   line-height: 1.8;
+  letter-spacing: -0.03em;
 }
 
-.nw-logo-accent {
-  color: var(--nw-accent);
+.news-logo [aria-label="DESIGN"] {
+  letter-spacing: -0.03em;
+  word-spacing: -0.3em;
 }
 
-.nw-menu-link {
+/* ===== MENU ===== */
+.news-main-menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.6rem, 1.6vw, 1.35rem);
+  list-style: none;
+}
+
+.news-main-menu-left {
+  grid-column: 2;
+  justify-self: end;
+}
+
+.news-main-menu-right {
+  grid-column: 4;
+  justify-self: start;
+}
+
+.news-menu-link {
   color: #1c1c1a;
   font-family: "Merriweather", serif;
   font-size: 1rem;
   font-weight: 600;
   line-height: 1.2;
+  padding-top: 0.35rem;
+  padding-bottom: 0.35rem;
+  text-align: center;
 }
 
-.nw-menu-link:hover,
-.nw-menu-link:focus,
-.nw-menu-link:active,
+.news-menu-link:hover,
+.news-menu-link:focus,
+.news-menu-link:active,
 .navbar-dark .nav-link:hover,
 .navbar-dark .nav-link:focus,
 .navbar-dark .nav-link.active,
@@ -105,135 +125,35 @@ body {
   color: #1c1c1a !important;
 }
 
-.nw-main-menu {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: center;
-  gap: clamp(0.6rem, 1.6vw, 1.35rem);
-  list-style: none;
-}
-
-.nw-main-menu-left {
-  grid-column: 2;
-  justify-self: end;
-}
-
-.nw-main-menu-right {
-  grid-column: 4;
-  justify-self: start;
-}
-
-.nw-main-menu .nw-menu-item {
-  margin-right: 0;
-}
-
-.nw-main-menu .nw-menu-link {
-  padding-top: 0.35rem;
-  padding-bottom: 0.35rem;
-  text-align: center;
-}
-
-.nw-menu-actions {
-  margin-top: 0.4rem;
-}
-
-@media (max-width: 1199.98px) {
-  .nw-navbar-shell {
-    position: static;
-    grid-template-columns: minmax(64px, 1fr) auto minmax(44px, 1fr);
-    grid-template-areas:
-      "team logo toggler"
-      "left left left"
-      "right right right";
-    row-gap: 0.2rem;
-    column-gap: 0.5rem;
-  }
-
-  .nw-team-tag {
-    grid-area: team;
-    margin-right: 0;
-  }
-
-  .nw-logo {
-    grid-area: logo;
-    justify-self: center;
-  }
-
-  .nw-navbar-shell .navbar-toggler {
-    grid-area: toggler;
-  }
-
-  .nw-main-menu-left {
-    grid-area: left;
-    justify-self: center;
-  }
-
-  .nw-main-menu-right {
-    grid-area: right;
-    justify-self: center;
-  }
-
-  .nw-main-menu {
-    flex-wrap: wrap;
-    gap: 0.3rem 0.9rem;
-  }
-
-  .nw-main-menu .nw-menu-link {
-    font-size: 0.86rem;
-    padding-top: 0.2rem;
-    padding-bottom: 0.2rem;
-  }
-}
-
-@media (max-width: 575.98px) {
-  .nw-team-tag {
-    font-size: 0.8rem;
-    letter-spacing: 0.02em;
-  }
-
-  .nw-logo {
-    font-size: 1.35rem;
-  }
-
-  .nw-main-menu .nw-menu-link {
-    font-size: 0.76rem;
-  }
-}
-
-.nw-login-btn {
-  background: var(--nw-text);
+/* ===== LOGIN BUTTON ===== */
+.news-login-btn {
+  background: var(--news-text);
   color: #000;
   font-weight: 700;
   border: none;
 }
 
-.nw-login-btn:hover {
-  background: var(--nw-text);
+.news-login-btn:hover {
+  background: var(--news-text);
   color: #000;
 }
 
-.nw-navbar *:not(.nw-menu-item):not(.nw-menu-link):not(.nw-ham-line) {
-  transition: none !important;
-  animation: none !important;
-}
-
-.nw-hamburger-btn {
+/* ===== HAMBURGER ICON ===== */
+.news-hamburger-btn {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 6px 4px;
 }
 
-.nw-hamburger {
+.news-hamburger {
   display: flex;
   flex-direction: column;
   gap: 6px;
   width: 28px;
 }
 
-.nw-ham-line {
+.news-ham-line {
   display: block;
   height: 1.5px;
   background-color: #1c1c1a;
@@ -242,16 +162,24 @@ body {
   will-change: transform;
 }
 
-.nw-hero {
+/* Tắt transition trên navbar (trừ menu/hamburger line) */
+.news-navbar *:not(.news-menu-item):not(.news-menu-link):not(.news-ham-line) {
+  transition: none !important;
+  animation: none !important;
+}
+
+/* ===== HERO SECTION ===== */
+.news-hero {
   margin-top: -25px;
   min-height: calc(100vh - 63px);
-  background: var(--nw-hero-bg);
+  background: var(--news-bg);
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   overflow: hidden;
 }
 
-.nw-display-title {
+/* ===== TITLE (text clip effect) ===== */
+.news-display-title {
   display: inline-block;
   transform: scaleY(2);
   font-family: "Merriweather", serif;
@@ -259,7 +187,7 @@ body {
   font-weight: 600;
   line-height: 1.33;
   color: transparent;
-  background: var(--nw-hero-bg);
+  background: var(--news-bg);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -269,11 +197,10 @@ body {
   text-align: center;
 }
 
-.nw-title-wrap {
+.news-title-wrap {
   background: #1c1c1a;
-  position: relative;
   margin-top: 40px;
-  padding: 140px clamp(16px, 2vw, 24px) 80px clamp(16px, 2vw, 24px);
+  padding: 140px clamp(16px, 2vw, 24px) 80px;
   min-height: clamp(150px, 18vw, 260px);
   display: flex;
   align-items: center;
@@ -281,14 +208,14 @@ body {
   text-align: center;
 }
 
-/* Custom cursor */
+/* ===== CUSTOM CURSOR ===== */
 *,
 *::before,
 *::after {
   cursor: none !important;
 }
 
-#nw-cursor {
+#news-cursor {
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -302,11 +229,66 @@ body {
   pointer-events: none;
   will-change: transform;
   transition:
-    width 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    height 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    width 0.2s ease,
+    height 0.2s ease;
 }
 
-#nw-cursor.nw-cursor--hover {
+#news-cursor.news-cursor--hover {
   width: 26px;
   height: 26px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1199.98px) {
+  .news-navbar-shell {
+    grid-template-columns: minmax(64px, 1fr) auto minmax(44px, 1fr);
+    grid-template-areas:
+      "team logo toggler"
+      "left left left"
+      "right right right";
+    row-gap: 0.2rem;
+    column-gap: 0.5rem;
+  }
+
+  .news-team-tag {
+    grid-area: team;
+  }
+  .news-logo {
+    grid-area: logo;
+    justify-self: center;
+  }
+  .news-navbar-shell .navbar-toggler {
+    grid-area: toggler;
+  }
+  .news-main-menu-left {
+    grid-area: left;
+    justify-self: center;
+  }
+  .news-main-menu-right {
+    grid-area: right;
+    justify-self: center;
+  }
+
+  .news-main-menu {
+    flex-wrap: wrap;
+    gap: 0.3rem 0.9rem;
+  }
+
+  .news-menu-link {
+    font-size: 0.86rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .news-team-tag {
+    font-size: 0.8rem;
+  }
+  .news-logo {
+    font-size: 1.35rem;
+  }
+  .news-menu-link {
+    font-size: 0.76rem;
+  }
 }

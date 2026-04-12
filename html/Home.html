@@ -1,5 +1,5 @@
-<!doctype html>
-<html lang="en">
+﻿<!doctype html>
+<html lang="vi">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,16 +7,13 @@
 
     <!-- SCROLL RESET, no-defer -->
     <script>
-      document.documentElement.classList.add("nw-feed-js");
-
-      if ("scrollRestoration" in history) {
-        history.scrollRestoration = "manual";
-      }
+      document.documentElement.classList.add("news-feed-js");
+      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
       window.scrollTo(0, 0);
 
       // Problem: scroll-behavior: smooth trên body CSS can thiệp vào GSAP ScrollTrigger.refresh().
       // Khi ST refresh nội bộ cần scroll về 0 để đo positions, smooth behavior
-      // làm scroll animation bất đồng bộ → ST đọc vị trí sai.
+      // làm scroll animation bất đồng bộ -> ST đọc vị trí sai.
       // Override về "auto" để scroll luôn instant với GSAP.
       document.documentElement.style.scrollBehavior = "auto";
     </script>
@@ -26,73 +23,81 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css" />
     <link rel="stylesheet" href="../css/index.css" />
     <link rel="stylesheet" href="../css/section2.css" />
-
     <link rel="stylesheet" href="../css/horizontal-feed.css" />
 
+    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
-    <!-- bootstrap -->
+    <!-- Bootstrap JS -->
     <script src="../js/bootstrap.bundle.min.js" defer></script>
 
     <!-- GSAP -->
     <script src="../js/gsap/gsap.min.js" defer></script>
     <script src="../js/gsap/ScrollTrigger.min.js" defer></script>
 
-    <!-- SECTION -->
+    <!-- JS sections -->
     <script src="../js/heroSection.js" defer></script>
+    <script src="../js/sectionTwo.js" defer></script>
     <script src="../js/components/horizontalFeed.js" defer></script>
     <script src="../js/cursor.js" defer></script>
     <script src="../js/auth.js" defer></script>
   </head>
 
-  <body class="nw-body">
-    <!-- Custom cursor -->
-    <div id="nw-cursor" aria-hidden="true"></div>
+  <body class="news-body">
+    <!-- Con trỏ tuỳ chỉnh -->
+    <div id="news-cursor" aria-hidden="true"></div>
 
-    <header class="nw-header sticky-top">
-      <nav class="navbar navbar-dark nw-navbar py-0">
+    <!-- HEADER / NAVBAR -->
+    <header class="news-header sticky-top">
+      <nav class="navbar navbar-dark news-navbar py-0">
         <div class="container-fluid px-3 px-xl-4">
-          <div class="nw-navbar-shell w-100">
-            <span class="nw-team-tag">Nhóm 7</span>
-            <ul class="navbar-nav mb-0 nw-main-menu nw-main-menu-left">
-              <li class="nav-item nw-menu-item">
-                <a class="nav-link nw-menu-link" href="#"
+          <!-- Desktop menu -->
+          <div class="news-navbar-shell w-100">
+            <span class="news-team-tag">Nhóm 7</span>
+
+            <ul class="navbar-nav mb-0 news-main-menu news-main-menu-left">
+              <li class="nav-item news-menu-item">
+                <a class="nav-link news-menu-link" href="#"
                   >Kinh tế &amp; Chính trị</a
                 >
               </li>
-              <li class="nav-item nw-menu-item">
-                <a class="nav-link nw-menu-link" href="#"
+              <li class="nav-item news-menu-item">
+                <a class="nav-link news-menu-link" href="#"
                   >Thể thao &amp; Sức khoẻ</a
                 >
               </li>
             </ul>
-            <a class="nw-logo py-3 mb-0" href="#">
+
+            <a class="news-logo py-3 mb-0" href="#">
               <span>
                 BÁO CHÍ
                 <span aria-label="DESIGN">
-                  <span style="color: #c30000">D</span
-                  ><span style="color: #1c9a3f">E</span
-                  ><span style="color: #f2c200">S</span
-                  ><span style="color: #7a3bd6">I</span
-                  ><span style="color: #ff8a00">G</span
-                  ><span style="color: #1262ff">N</span>
+                  <span style="color: #c30000">D</span>
+                  <span style="color: #1c9a3f">E</span>
+                  <span style="color: #f2c200">S</span>
+                  <span style="color: #7a3bd6">I</span>
+                  <span style="color: #ff8a00">G</span>
+                  <span style="color: #1262ff">N</span>
                 </span>
               </span>
             </a>
-            <ul class="navbar-nav mb-0 nw-main-menu nw-main-menu-right">
-              <li class="nav-item nw-menu-item">
-                <a class="nav-link nw-menu-link" href="#"
+
+            <ul class="navbar-nav mb-0 news-main-menu news-main-menu-right">
+              <li class="nav-item news-menu-item">
+                <a class="nav-link news-menu-link" href="#"
                   >Giải trí &amp; Đời sống</a
                 >
               </li>
-              <li class="nav-item nw-menu-item">
-                <a class="nav-link nw-menu-link" href="#"
+              <li class="nav-item news-menu-item">
+                <a class="nav-link news-menu-link" href="#"
                   >Vũ trụ &amp; Thiên nhiên</a
                 >
               </li>
             </ul>
+
+            <!-- Nút hamburger (mobile) -->
             <button
-              class="navbar-toggler border-0 shadow-none nw-hamburger-btn"
+              class="navbar-toggler border-0 shadow-none news-hamburger-btn"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#nwMenu"
@@ -100,18 +105,20 @@
               aria-expanded="false"
               aria-label="Toggle navigation"
             >
-              <span class="nw-hamburger" aria-hidden="true">
-                <span class="nw-ham-line nw-ham-top"></span>
-                <span class="nw-ham-line nw-ham-bottom"></span>
+              <span class="news-hamburger" aria-hidden="true">
+                <span class="news-ham-line news-ham-top"></span>
+                <span class="news-ham-line news-ham-bottom"></span>
               </span>
             </button>
           </div>
+
+          <!-- Menu collapse (mobile) -->
           <div class="collapse navbar-collapse justify-content-end" id="nwMenu">
             <div
-              class="d-flex justify-content-center justify-content-lg-end w-100 mb-2 nw-menu-actions"
+              class="d-flex justify-content-center justify-content-lg-end w-100 mb-2 news-menu-actions"
             >
               <a
-                class="btn nw-login-btn rounded-0 px-4 py-4"
+                class="btn news-login-btn rounded-0 px-4 py-4"
                 id="login-link"
                 href="./dang-nhap.html"
               >
@@ -127,15 +134,15 @@
       </nav>
     </header>
 
-    <main class="nw-main">
-      <!-- SECTION 1 -->
-      <section class="nw-hero position-relative">
+    <main class="news-main">
+      <!-- SECTION 1: Horizontal Feed -->
+      <section class="news-hero position-relative">
         <div class="feed-container">
           <div class="feed-track">
             <article class="proj-card">
               <img
                 src="/images/Trump.png"
-                alt="Global Dispatch cover"
+                alt="Global Dispatch"
                 loading="lazy"
               />
               <div class="proj-content">
@@ -151,11 +158,7 @@
             </article>
 
             <article class="proj-card">
-              <img
-                src="/images/trump2.png"
-                alt="Policy Lens cover"
-                loading="lazy"
-              />
+              <img src="/images/trump2.png" alt="Policy Lens" loading="lazy" />
               <div class="proj-content">
                 <div class="proj-title-row">
                   <h3 class="proj-title">Policy Lens</h3>
@@ -171,7 +174,7 @@
             <article class="proj-card">
               <img
                 src="/images/iranbombed.png"
-                alt="Live Wire cover"
+                alt="Live Wire"
                 loading="lazy"
               />
               <div class="proj-content">
@@ -183,16 +186,18 @@
               </div>
             </article>
 
+            <!-- Card trung tâm -->
             <article class="center-card" aria-label="Feed center title card">
               <h3 class="center-title">BÁO CHÍ !</h3>
               <p class="center-subtitle mt-3">
-                Không chỉ dừng lại ở <br /><span class="nw-khorap"
+                Không chỉ dừng lại ở <br /><span class="news-khorap"
                   >Nội dung</span
-                ><br />Mà bắt đầu từ cách bạn <br />
-                <span class="nw-highlight">Thể hiện</span>.
+                ><br />
+                Mà bắt đầu từ cách bạn <br />
+                <span class="news-highlight">Thể hiện</span>.
               </p>
               <p class="center-tip">
-                <span class="nw-tip">TIP!</span> Kéo ngang để xem các mục tin
+                <span class="news-tip">TIP!</span> Kéo ngang để xem các mục tin
                 tức
               </p>
             </article>
@@ -200,7 +205,7 @@
             <article class="proj-card">
               <img
                 src="/images/iranbomb.png"
-                alt="Market Pulse cover"
+                alt="Market Pulse"
                 loading="lazy"
               />
               <div class="proj-content">
@@ -216,11 +221,7 @@
             </article>
 
             <article class="proj-card">
-              <img
-                src="/images/Trump.png"
-                alt="Signal Desk cover"
-                loading="lazy"
-              />
+              <img src="/images/Trump.png" alt="Signal Desk" loading="lazy" />
               <div class="proj-content">
                 <div class="proj-title-row">
                   <h3 class="proj-title">Signal Desk</h3>
@@ -234,11 +235,7 @@
             </article>
 
             <article class="proj-card">
-              <img
-                src="/images/injury.png"
-                alt="Deep Focus cover"
-                loading="lazy"
-              />
+              <img src="/images/injury.png" alt="Deep Focus" loading="lazy" />
               <div class="proj-content">
                 <div class="proj-title-row">
                   <h3 class="proj-title">Deep Focus</h3>
@@ -252,57 +249,98 @@
             </article>
           </div>
         </div>
+
         <div class="container-fluid px-3 px-xl-4">
-          <div class="nw-title-wrap">
-            <h2 class="nw-display-title mb-0">TIN TỨC ONLINE</h2>
+          <div class="news-title-wrap">
+            <h2 class="news-display-title mb-0">TIN TỨC ONLINE</h2>
           </div>
         </div>
       </section>
 
-      <!-- SECTION 2 -->
-      <section class="nw-section-two">
-        <div class="container-fluid px-3 px-xl-4">
-          <div class="nw-s2-head">
-            <p class="nw-s2-kicker mb-0">Section 2</p>
-            <h2 class="nw-s2-title mb-0">BẢN TIN NỔI BẬT</h2>
+      <!-- SECTION 2: Horizontal scroll với GSAP -->
+      <div class="news-s2-wrapper">
+        <section class="news-section-two">
+          <div class="news-s2-viewport">
+            <div class="news-s2-track">
+              <!-- Panel 1: Giới thiệu chuyên mục -->
+              <article
+                class="news-s2-panel news-s2-panel--lead news-s2-panel--article-1"
+              >
+                <div class="news-s2-editorial">
+                  <div class="news-s2-mark" aria-hidden="true">
+                    KINH TẾ &amp; <br />
+                    CHÍNH TRỊ
+                  </div>
+                  <p class="news-s2-editorial-text">
+                    Chúng tôi thiết kế section này theo kiểu triển lãm hình ảnh:
+                    ảnh lớn toàn khung, nhãn dọc tối giản, và chuyển động ngang
+                    bằng ScrollTrigger để người đọc có cảm giác "đi xuyên" qua
+                    từng cụm nội dung.
+                  </p>
+                </div>
+              </article>
+
+              <!-- Panel 2 -->
+              <article class="news-s2-panel news-s2-panel--photo">
+                <img
+                  class="news-s2-image"
+                  src="/images/iranbomb.png"
+                  alt="Góc nhìn chuyên sâu"
+                  loading="lazy"
+                />
+                <div class="news-s2-meta">
+                  <span class="news-s2-index">02</span>
+                  <h3 class="news-s2-card-title">Góc nhìn địa chính trị</h3>
+                </div>
+              </article>
+
+              <!-- Panel 3 -->
+              <article class="news-s2-panel news-s2-panel--photo">
+                <img
+                  class="news-s2-image"
+                  src="/images/iranbomb.png"
+                  alt="Góc nhìn chuyên sâu"
+                  loading="lazy"
+                />
+                <div class="news-s2-meta">
+                  <span class="news-s2-index">02</span>
+                  <h3 class="news-s2-card-title">Góc nhìn địa chính trị</h3>
+                </div>
+              </article>
+
+              <!-- Panel 4 -->
+              <article class="news-s2-panel news-s2-panel--photo">
+                <img
+                  class="news-s2-image"
+                  src="/images/Trump.png"
+                  alt="Nhịp chuyển động thị trường"
+                  loading="lazy"
+                />
+                <div class="news-s2-meta">
+                  <span class="news-s2-index">03</span>
+                  <h3 class="news-s2-card-title">
+                    Nhịp chuyển động thị trường
+                  </h3>
+                </div>
+              </article>
+
+              <!-- Panel 5 -->
+              <article class="news-s2-panel news-s2-panel--photo">
+                <img
+                  class="news-s2-image"
+                  src="/images/trump2.png"
+                  alt="Điểm nóng dư luận"
+                  loading="lazy"
+                />
+                <div class="news-s2-meta">
+                  <span class="news-s2-index">04</span>
+                  <h3 class="news-s2-card-title">Điểm nóng dư luận quốc tế</h3>
+                </div>
+              </article>
+            </div>
           </div>
-
-          <div class="nw-s2-grid">
-            <article class="nw-s2-card">
-              <span class="nw-s2-tag">PHÂN TÍCH</span>
-              <h3 class="nw-s2-card-title">
-                Kinh tế toàn cầu bước vào chu kỳ mới
-              </h3>
-              <p class="nw-s2-card-desc">
-                Dòng vốn chuyển dịch nhanh giữa các thị trường khiến bức tranh
-                tăng trưởng thay đổi rõ rệt trong quý này.
-              </p>
-            </article>
-
-            <article class="nw-s2-card">
-              <span class="nw-s2-tag">THỜI SỰ</span>
-              <h3 class="nw-s2-card-title">
-                Cập nhật chính sách ảnh hưởng trực tiếp đến doanh nghiệp
-              </h3>
-              <p class="nw-s2-card-desc">
-                Những điều chỉnh về thủ tục và thuế đang tạo ra áp lực thích
-                nghi mới cho các đơn vị vừa và nhỏ.
-              </p>
-            </article>
-
-            <article class="nw-s2-card">
-              <span class="nw-s2-tag">GÓC NHÌN</span>
-              <h3 class="nw-s2-card-title">
-                Xu hướng tiêu dùng số tăng mạnh ở nhóm trẻ
-              </h3>
-              <p class="nw-s2-card-desc">
-                Hành vi ưu tiên nội dung ngắn và cập nhật theo thời gian thực
-                đang định hình lại cách báo chí tiếp cận độc giả.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </main>
   </body>
 </html>
