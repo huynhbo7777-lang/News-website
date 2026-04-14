@@ -196,7 +196,9 @@
 }
 
 .s2-lead-panel:hover .s2-lead-image,
-.s2-data-panel:hover .s2-data-image {
+.s2-lead-panel.s2-hover-active .s2-lead-image,
+.s2-data-panel:hover .s2-data-image,
+.s2-data-panel.s2-hover-active .s2-data-image {
   filter: var(--s2-image-filter-hover);
   mix-blend-mode: var(--s2-image-blend-hover);
   transform: scale(var(--s2-image-scale-hover));
@@ -328,7 +330,8 @@
   transition: background 0.35s ease;
 }
 
-.s2-data-panel:hover .s2-data-image-overlay {
+.s2-data-panel:hover .s2-data-image-overlay,
+.s2-data-panel.s2-hover-active .s2-data-image-overlay {
   background: rgba(28, 28, 26, 0.02);
 }
 
