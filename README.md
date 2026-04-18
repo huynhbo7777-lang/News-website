@@ -1,95 +1,179 @@
-# Bài tập lớn môn Hệ Thống và Công nghệ Web
-BÁO CHÍ DESIGN - News Website Project
-Một dự án website tin tức hiện đại với giao diện đột phá, tập trung vào trải nghiệm người dùng thông qua các hiệu ứng chuyển động mượt mà (GSAP) và bố cục linh hoạt (Grid & Flexbox).
+# 📰 BÁO CHÍ DESIGN - News Website Project
 
- Tính năng nổi bật
-Thiết kế Modern UI/UX: Sử dụng phong cách typography lớn, khoảng trắng cân đối và màu sắc tương phản mạnh.
+> 🚀 Một dự án website tin tức hiện đại với giao diện đột phá, tập trung vào trải nghiệm người dùng thông qua hiệu ứng mượt mà và bố cục linh hoạt.
 
-Horizontal Scrolling: Trải nghiệm đọc tin tức theo chiều ngang (Horizontal Feed) độc đáo tại trang chủ và các chuyên mục.
+---
 
-Hiệu ứng GSAP: Tích hợp ScrollTrigger và GSAP để tạo các chuyển động parallax, mượt mà khi người dùng cuộn trang.
+## ✨ Tính năng nổi bật
 
-Hệ thống Auth: Giao diện Đăng ký/Đăng nhập chuyên nghiệp với validation và hiệu ứng chuyển cảnh intro.
+### 🎨 Modern UI/UX
 
-Custom Cursor: Con trỏ chuột tùy chỉnh (#news-cursor) tăng tính thẩm mỹ và tương tác cho website.
+* Typography lớn, rõ ràng
+* Khoảng trắng cân đối
+* Màu sắc tương phản mạnh
 
-Responsive: Hiển thị hoàn hảo trên mọi thiết bị từ Mobile đến Desktop nhờ hệ thống lưới của Bootstrap 5.
+### ↔️ Horizontal Scrolling
 
-Cấu trúc thư mục chính
+* Trải nghiệm đọc tin tức theo **chiều ngang**
+* Áp dụng tại:
+
+  * Trang chủ
+  * Các chuyên mục
+
+### 🎬 Hiệu ứng GSAP
+
+* Sử dụng **ScrollTrigger + GSAP**
+* Hiệu ứng:
+
+  * Parallax
+  * Scroll animation mượt
+
+### 🔐 Hệ thống Authentication
+
+* Đăng ký / Đăng nhập
+* Validation đầy đủ
+* Hiệu ứng chuyển cảnh đẹp
+
+### 🖱️ Custom Cursor
+
+* Con trỏ chuột riêng `#news-cursor`
+* Tăng tính tương tác & thẩm mỹ
+
+### 📱 Responsive
+
+* Tương thích:
+
+  * 📱 Mobile
+  * 💻 Desktop
+* Sử dụng Bootstrap 5 Grid System
+
+---
+
+## 📁 Cấu trúc thư mục
+
+```
 .
-├── html/                           # Thư mục chứa giao diện người dùng
-│   ├── Home.html                   # Trang chủ (Horizontal Feed & GSAP)
-│   ├── the-thao-suc-khoe.html      # Trang chuyên mục Thể thao & Sức khỏe
-│   ├── dang-nhap.html              # Trang đăng nhập
-│   ├── dang-ky.html                # Trang đăng ký tài khoản
-│   ├── the-thao-football-detail.html # Chi tiết tin Bóng đá
-│   ├── the-thao-f1-detail.html       # Chi tiết tin F1
-│   ├── the-thao-nba-detail.html      # Chi tiết tin Bóng rổ
-│   ├── suc-khoe-mental-detail.html   # Chi tiết tin Sức khỏe tinh thần
-│   ├── suc-khoe-nutrition-detail.html # Chi tiết tin Dinh dưỡng
-│   └── suc-khoe-yoga-detail.html      # Chi tiết tin Yoga
+├── html/
+│   ├── Home.html
+│   ├── the-thao-suc-khoe.html
+│   ├── dang-nhap.html
+│   ├── dang-ky.html
+│   ├── the-thao-football-detail.html
+│   ├── the-thao-f1-detail.html
+│   ├── the-thao-nba-detail.html
+│   ├── suc-khoe-mental-detail.html
+│   ├── suc-khoe-nutrition-detail.html
+│   └── suc-khoe-yoga-detail.html
 │
-├── css/                            # Hệ thống định dạng (Module hóa)
-│   ├── root.css                    # Định nghĩa Variables (Màu sắc, Font)
-│   ├── index.css                   # Styles chung (Navbar, Footer, Cursor)
-│   ├── local-fonts.css             # Cấu hình nhúng Font nội bộ
-│   ├── horizontal-feed.css         # Layout cuộn ngang Hero Section
-│   ├── section2.css                # Styles chuyên mục Kinh tế & Chính trị
-│   ├── section3.css                # Styles Collage & Gallery Thể thao
-│   ├── section4.css                # Layout Grid tin tức tổng hợp
-│   ├── article-detail.css          # Styles giao diện đọc bài viết chi tiết
-│   ├── login.css                   # Styles trang Auth & hiệu ứng Shapes
-│   └── bootstrap.min.css           # Framework Bootstrap 5
+├── css/
+│   ├── root.css
+│   ├── index.css
+│   ├── local-fonts.css
+│   ├── horizontal-feed.css
+│   ├── section2.css
+│   ├── section3.css
+│   ├── section4.css
+│   ├── article-detail.css
+│   ├── login.css
+│   └── bootstrap.min.css
 │
-├── js/                             # Kịch bản xử lý & Animation
-│   ├── auth.js                     # Quản lý xác thực & Trạng thái người dùng
-│   ├── login.js                    # Logic xử lý Form đăng nhập
-│   ├── dang-ky.js                  # Logic xử lý Form đăng ký
-│   ├── heroSection.js              # Hiệu ứng cho Section đầu trang
-│   ├── sectionTwo.js               # Điều khiển cuộn ngang GSAP (S2)
-│   ├── sectionThree.js             # Logic chuyển đổi Tab Thể thao (S3)
-│   ├── cursor.js                   # Xử lý Custom Cursor (Con trỏ chuột)
-│   └── gsap/                       # Thư viện Animation chuyên sâu
-│       ├── gsap.min.js             # Core engine
-│       └── ScrollTrigger.min.js    # Plugin hỗ trợ hiệu ứng khi cuộn
+├── js/
+│   ├── auth.js
+│   ├── login.js
+│   ├── dang-ky.js
+│   ├── heroSection.js
+│   ├── sectionTwo.js
+│   ├── sectionThree.js
+│   ├── cursor.js
+│   └── gsap/
+│       ├── gsap.min.js
+│       └── ScrollTrigger.min.js
 │
-├── fonts/                          # Tài nguyên Font chữ nội bộ
-│   └── google/                     # Các bộ font (Inter, Oswald, Dancing Script...)
-│
-├── images/                         # Tài nguyên hình ảnh minh họa bài viết
-│
-└── README.md                       # Tài liệu hướng dẫn dự án                   
-🛠️ Công nghệ sử dụng
-Frontend: HTML5, CSS3 (Custom Properties), Bootstrap 5.
+├── fonts/
+├── images/
+└── README.md
+```
 
-Animations: GSAP (GreenSock Animation Platform) & ScrollTrigger.
+---
 
-Scripting: JavaScript (ES6+), jQuery 3.7.1.
+## 🛠️ Công nghệ sử dụng
 
-Fonts: Tích hợp bộ font nội bộ (Local fonts) tối ưu tốc độ tải.
+* 🌐 HTML5, CSS3
+* 🎨 Bootstrap 5
+* 🎬 GSAP + ScrollTrigger
+* ⚡ JavaScript (ES6+)
+* 🧩 jQuery 3.7.1
+* 🔤 Local Fonts
 
-🚀 Hướng dẫn sử dụng
-Clone dự án:
+---
 
-Bash
+## 🚀 Hướng dẫn sử dụng
+
+### 1. Clone dự án
+
+```bash
 git clone https://github.com/your-username/news-website.git
-Mở trình duyệt: Chạy tệp html/Home.html bằng Live Server trên VS Code hoặc mở trực tiếp để trải nghiệm.
+```
 
-Tương tác: * Kéo ngang ở các Section "Tin tức online" hoặc "Thể thao".
+### 2. Chạy project
 
-Nhấp vào các thẻ bài viết để xem nội dung chi tiết.
+* Mở bằng **Live Server (VS Code)**
+* Hoặc mở trực tiếp:
 
-👥 Thành viên thực hiện
-Nhóm: Nhóm 8
-Phan Hồ Sơn Nghĩa(nhóm trưởng)
-Dương Công Khoa
-Đào Tấn Tuyên
-Phạm Nguyễn Phúc Khang
-Huỳnh Vĩnh Lợi
-Huỳnh Bảo Duy
-Đào Văn Hào
+```
+html/Home.html
+```
 
-Dự án: Bài tập môn Thiết kế Web / Đồ án học phần.
+### 3. Trải nghiệm
 
-📝 Lưu ý kỹ thuật
-Dự án sử dụng scrollRestoration = "manual" và ghi đè scroll-behavior: auto để tránh xung đột giữa tính năng cuộn mượt tự nhiên của trình duyệt và các hiệu ứng ScrollTrigger của GSAP, đảm bảo vị trí tính toán của các thẻ tin tức luôn chính xác.
+* 👉 Kéo ngang ở các section
+* 👉 Click bài viết để xem chi tiết
+
+---
+
+## 👥 Thành viên thực hiện
+
+👨‍💻 **Nhóm 8**
+
+* Phan Hồ Sơn Nghĩa (Nhóm trưởng)
+* Dương Công Khoa
+* Đào Tấn Tuyên
+* Phạm Nguyễn Phúc Khang
+* Huỳnh Vĩnh Lợi
+* Huỳnh Bảo Duy
+* Đào Văn Hào
+
+---
+
+## ⚙️ Lưu ý kỹ thuật
+
+* Sử dụng:
+
+```js
+scrollRestoration = "manual"
+```
+
+* Override:
+
+```css
+scroll-behavior: auto;
+```
+
+👉 Mục đích:
+
+* Tránh conflict với GSAP ScrollTrigger
+* Đảm bảo vị trí scroll luôn chính xác
+
+---
+
+## 💡 Gợi ý nâng cấp thêm (nếu muốn ăn điểm cao 🔥)
+
+* 🌙 Dark mode toggle
+* 🔎 Search bài viết
+* ❤️ Like / Bookmark
+* 📰 Fake API (JSON Server)
+* 🎞️ Loading animation (skeleton UI)
+
+---
+
+> ✨ “Good UI is invisible. Great UI feels magical.”
