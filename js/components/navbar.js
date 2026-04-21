@@ -24,7 +24,7 @@
   ];
 
   const NAV_LEFT = [
-    { href: "./Index.html", label: "Kinh tế &amp; Chính trị", key: "home" },
+    { href: "./kinh-te-chinh-tri/kinh-te-chinh-tri-details.html", label: "Kinh tế &amp; Chính trị", key: "politics" },
     { href: "./the-thao/the-thao-suc-khoe.html", label: "Thể thao &amp; Điện tử", key: "sports" },
   ];
 
@@ -52,6 +52,7 @@
     if (file.startsWith("the-thao") || file.startsWith("suc-khoe")) return "sports";
     if (file.startsWith("vu-tru")) return "cosmos";
     if (file.startsWith("giai-tri") || file.startsWith("homeGTDS")) return "lifestyle";
+    if (file.startsWith("kinh-te") || file.startsWith("kinh-te")) return "politics";
     return "";
   }
 
