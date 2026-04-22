@@ -100,6 +100,23 @@
   border-top: 1px solid rgba(140, 95, 63, 0.14);
 }
 
+.article-source {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  color: #5b4b3d;
+}
+
+.article-source a {
+  color: #8c5f3f;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.article-source a:hover {
+  color: #5f3d23;
+}
+
 .related-news-title {
   font-family: "Oswald", sans-serif;
   font-size: 1.5rem;
