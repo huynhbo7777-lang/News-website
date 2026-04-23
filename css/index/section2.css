@@ -111,6 +111,7 @@
 
 .s2-editorial-text {
   margin: 0 0 clamp(14px, 1.8vw, 50px) 0;
+  padding-top: clamp(20px, 3vw, 750px);
   font-family: var(--nw-font-time);
   font-size: clamp(1.15rem, 1.35vw, 1.5rem);
   line-height: 1.65;
