@@ -6,6 +6,7 @@
     { "source": "/js/:path*", "destination": "/js/:path*" },
     { "source": "/images/:path*", "destination": "/images/:path*" },
     { "source": "/fonts/:path*", "destination": "/fonts/:path*" },
+    { "source": "/html/:path*", "destination": "/html/:path*" },
     { "source": "/:path*", "destination": "/html/:path*" }
   ]
 }
