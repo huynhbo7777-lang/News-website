@@ -28,9 +28,9 @@ $(() => {
   
   const greeting = (() => {
     const h = new Date().getHours();
-    if (h < 12) return "Good morning";
-    if (h < 18) return "Good afternoon";
-    return "Good evening";
+    if (h < 12) return "Chào buổi sáng";
+    if (h < 18) return "Chào buổi chiều";
+    return "Chào buổi tối";
   })();
 
   const buildOverlayLoggedIn = () => `
@@ -38,21 +38,21 @@ $(() => {
     <button class="ao-close" id="ao-close" aria-label="Đóng">&#x2715;</button>
     <div class="ao-body">
       <h2 class="ao-greeting">${greeting}, ${username}.</h2>
-      <p class="ao-sub-note">The email you logged in with isn't associated with a News subscription and has limited access to articles.</p>
-      <a href="#" class="ao-subscribe-btn">Subscribe for more access</a>
-      <p class="ao-already">Already subscribed? <a href="#" class="ao-try-email">Try a different email</a></p>
+      <p class="ao-sub-note">Email bạn đã đăng nhập không được liên kết với tài khoản News và có quyền truy cập hạn chế vào các bài viết.</p>
+      <a href="#" class="ao-subscribe-btn">Đăng ký để có nhiều quyền truy cập hơn</a>
+      <p class="ao-already">Đã đăng ký? <a href="#" class="ao-try-email">Thử một email khác</a></p>
       <div class="ao-divider"></div>
-      <a href="#" class="ao-menu-item">Account settings <span class="ao-arrow">&#8250;</span></a>
+      <a href="#" class="ao-menu-item">Cài đặt tài khoản <span class="ao-arrow">&#8250;</span></a>
       <div class="ao-divider"></div>
-      <p class="ao-section-label">YOUR CONTENT</p>
-      <a href="#" class="ao-menu-item">Saved articles <span class="ao-arrow">&#8250;</span></a>
+      <p class="ao-section-label">NỘI DUNG CỦA BẠN</p>
+      <a href="#" class="ao-menu-item">Bài viết đã lưu <span class="ao-arrow">&#8250;</span></a>
       <div class="ao-divider"></div>
-      <a href="#" class="ao-menu-item">Newsletters <span class="ao-arrow">&#8250;</span></a>
+      <a href="#" class="ao-menu-item">Bản tin <span class="ao-arrow">&#8250;</span></a>
       <div class="ao-divider"></div>
-      <p class="ao-section-label">GET SUPPORT</p>
-      <a href="#" class="ao-menu-item">Help Center <span class="ao-arrow">&#8250;</span></a>
+      <p class="ao-section-label">TRỢ GIÚP</p>
+      <a href="#" class="ao-menu-item">Trung tâm trợ giúp <span class="ao-arrow">&#8250;</span></a>
       <div class="ao-divider"></div>
-      <a href="#" class="ao-logout" id="ao-logout">Log out</a>
+      <a href="#" class="ao-logout" id="ao-logout">Đăng xuất</a>
     </div>
   `;
 
