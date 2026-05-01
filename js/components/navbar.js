@@ -23,7 +23,6 @@ $(() => {
   if (htmlIndex !== -1) {
     depthFromHtml = pathParts.length - htmlIndex - 2; 
   } else {
-    // Fallback if 'html' folder isn't in URL, use data-base or default
     const fallbackBase = ($slot.data("base") || "./").replace(/\/?$/, "/");
     depthFromHtml = fallbackBase.split('../').length - 1;
     if (fallbackBase === "./") depthFromHtml = 0;
@@ -74,14 +73,24 @@ $(() => {
 
   // --- 1. Scroll Hide/Show ---
   let lastY = window.scrollY || 0;
+  let ticking = false;
+
   $(window).on("scroll", () => {
-    const y = window.scrollY || 0;
-    if (y <= 2 || ($mobileMenu.length && $mobileMenu.hasClass("show"))) {
-      $header.removeClass("header--hidden");
-    } else if (Math.abs(y - lastY) > 1) {
-      $header.toggleClass("header--hidden", y > lastY);
-    }
-    lastY = y;
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      const y = window.scrollY || 0;
+      const delta = y - lastY;
+
+      if (y <= 4 || ($mobileMenu.length && $mobileMenu.hasClass("show"))) {
+        $header.removeClass("header--hidden");
+      } else if (Math.abs(delta) > 4) {
+        $header.toggleClass("header--hidden", delta > 0);
+      }
+
+      lastY = y;
+      ticking = false;
+    });
   });
 
   if ($mobileMenu.length) {

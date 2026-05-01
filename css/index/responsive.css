@@ -14,7 +14,7 @@
 
   /* ── Navbar ──────────────────────────────────────────────── */
   .header {
-    position: sticky !important;
+    position: fixed !important;  /* Giữ fixed để transform hide/show hoạt động đúng */
     top: 0 !important;
     z-index: 1030 !important;
     background: #000 !important;
