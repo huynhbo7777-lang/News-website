@@ -3,10 +3,10 @@
   'use strict';
 
   const ITEMS = [
-    { label: 'KINH TẾ CHÍNH TRỊ',  href: 'kinh-te-chinh-tri/kinh-te-chinh-tri-details.html' },
-    { label: 'THỂ THAO SỨC KHOẺ',  href: 'the-thao/the-thao-suc-khoe.html' },
-    { label: 'GIẢI TRÍ ĐỜI SỐNG',  href: 'giai-tri-doi-song/GiaiTrivsDoiSong.html' },
-    { label: 'VŨ TRỤ THIÊN NHIÊN', href: 'vu-tru-thien-nhien/vu-tru-va-thien-nhien.html' },
+    { label: 'KINH TẾ CHÍNH TRỊ',  href: 'kinhte-chinhtri.html' },
+    { label: 'THỂ THAO SỨC KHOẺ',  href: 'thethao-suckhoe.html' },
+    { label: 'GIẢI TRÍ ĐỜI SỐNG',  href: 'giaitri-doisong.html' },
+    { label: 'VŨ TRỤ THIÊN NHIÊN', href: 'vu-tru-thien-nhien/vu-tru-thien-nhien.html' },
   ];
 
   let BASE = './', isOpen = false;

@@ -10,7 +10,7 @@ $(() => {
                 { c: "G", hex: "#ff8a00" },
                 { c: "N", hex: "#1262ff" }];
   const L_NAV = [{ h: "kinhte-chinhtri.html", l: "Kinh tế &amp; Chính trị", k: "home" }, { h: "thethao-suckhoe.html", l: "Thể thao &amp; Sức khoẻ", k: "sports" }];
-  const R_NAV = [{ h: "giaitri-doisong.html", l: "Giải trí &amp; Đời sống", k: "lifestyle" }, { h: "vu-tru-thien-nhien/vu-tru-va-thien-nhien.html", l: "Vũ trụ &amp; Thiên nhiên", k: "cosmos" }];
+  const R_NAV = [{ h: "giaitri-doisong.html", l: "Giải trí &amp; Đời sống", k: "lifestyle" }, { h: "vu-tru-thien-nhien/vu-tru-thien-nhien.html", l: "Vũ trụ &amp; Thiên nhiên", k: "cosmos" }];
 
   const $slot = $("#site-header");
   if (!$slot.length) return;
